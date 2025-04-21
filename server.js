@@ -1,5 +1,5 @@
 const { initNotificationService } = require("./app/api/notifications/services");
-const app = require("./app/api/app");
+const app = require("./app/app");
 require("dotenv").config();
 const { Server } = require("socket.io");
 

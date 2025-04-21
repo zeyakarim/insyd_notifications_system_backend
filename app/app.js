@@ -1,8 +1,8 @@
 const express = require('express');
-const notificationsRoutes = require('./notifications/routes');
+const notificationsRoutes = require('./api/notifications/routes');
 
 const cors = require('cors');
-const { Session } = require('./sessions/models');
+const { Session } = require('./api/sessions/models');
 const { Sequelize } = require('sequelize');
 // initialize the application
 const app = express();
