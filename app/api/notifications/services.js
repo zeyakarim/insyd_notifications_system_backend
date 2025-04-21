@@ -1,11 +1,11 @@
 const { Notifications } = require("./models");
 
 const MESSAGE_TEMPLATES = {
-    like: "👍 Someone liked your architecture post!",
-    comment: "💬 New comment: 'Love this design concept!'",
-    follow: "👤 DesignStudio_42 started following you",
-    job: "💼 Job match: Senior Architect at Foster + Partners",
-    default: "🔔 New activity in your network"
+    like: "Someone liked your architecture post!",
+    comment: "New comment: 'Love this design concept!'",
+    follow: "DesignStudio_42 started following you",
+    job: "Job match: Senior Architect at Foster + Partners",
+    default: "New activity in your network"
 };
 
 let ioInstance = null;
