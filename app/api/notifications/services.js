@@ -49,6 +49,7 @@ const fetchUnreadNotificationsService = async (sessionId) => {
         const notifications = await Notifications.findAll({
             where: {
                 session_id: sessionId,
+                deleted_at: null,
                 is_read: false
             },
             order: [['created_at', 'DESC']],
@@ -74,10 +75,20 @@ const markAsReadService = async (notificationId) => {
     }
 };
 
+const deleteNotificationService = async (notificationId) => {
+    try {
+        const deletedNotification = await Notifications.destroy({ where: { id: notificationId } });
+        return deletedNotification;
+    } catch (error) {
+        console.error('Error in deleting notification:', error);
+        throw new Error('Failed to delete notification');
+    }
+}
 
 module.exports = {
     initNotificationService,
     createNotificationService,
     fetchUnreadNotificationsService,
-    markAsReadService
+    markAsReadService,
+    deleteNotificationService
 }

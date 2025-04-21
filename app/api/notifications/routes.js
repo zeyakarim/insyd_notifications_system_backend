@@ -8,4 +8,6 @@ router.get('/', controllers.fetchNotifications);
 
 router.patch('/:id/read', controllers.markAsRead);
 
+router.delete('/:id', controllers.deleteNotification);
+
 module.exports = router;
