@@ -14,7 +14,7 @@ let io;
 io = new Server(server, {
     pingTimeout: 60000,
     cors: {
-      origin: JSON.parse(process.env.origins),
+      origin: process.env.origin,
     },
 });
 

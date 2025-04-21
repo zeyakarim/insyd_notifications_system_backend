@@ -1,7 +1,5 @@
 const express = require('express');
 const notificationsRoutes = require('./api/notifications/routes');
-// const userRoutes = require('./users/routes');
-// const cookieParser = require('cookie-parser');
 
 const cors = require('cors');
 const { Session } = require('./api/sessions/models');
@@ -9,22 +7,23 @@ const { Sequelize } = require('sequelize');
 // initialize the application
 const app = express();
 
-app.use(
-    cors({
-        credentials: true,
-        origin: process.env.origin || "http://localhost:5173", // Default for dev
-        contentType: ['application/json', 'multipart/form-data'],
-        methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-        allowedHeaders: [
-            "Content-Type",
-            "Authorization",
-            "X-Requested-With",
-            "Accept",
-            "Origin",
-            "X-Forwarded-For",
-        ],
-    })
-);
+app.use(cors({
+    credentials: true,
+    origin: process.env.origin || "http://localhost:3000",
+    contentType: ['application/json', 'multipart/form-data'],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: [
+        "Content-Type",
+        "Authorization",
+        "X-Requested-With",
+        "Accept",
+        "Origin",
+        "X-Forwarded-For",
+        "X-Session-ID"
+    ],
+    exposedHeaders: ['X-Session-ID']
+}));
+
   
 app.use(
     express.json({
